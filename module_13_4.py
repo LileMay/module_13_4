@@ -44,10 +44,10 @@ async def send_calories(message: types.Message, state: FSMContext):
     await message.answer(f'Ваша норма калорий: {calories:.2f}')
     await state.finish()
 
-@dp.message_handler()
-async def all_message(message):
+@dp.message_handler(commands=['start'])
+async def all_message(message: types.Message, state: FSMContext):
     await message.answer('Привет! Я бот помогающий твоему здоровью.')
-    await message.answer("Введите слово'Calories' для начала расчета.")
+    
 
 
 
